@@ -1,0 +1,7 @@
+supabase
+flask 
+langchain 
+langchain-community
+psycopg2-binary
+streamlit
+fastapi

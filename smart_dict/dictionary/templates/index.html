@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+
+
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card tale-bg">
+            <div class="card-people mt-auto">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 grid-margin transparent">
+        <div class="row">
+            <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale">
+                    <div class="card-body">
+                        <p class="mb-4">Total Words </p>
+                        <p class="fs-30 mb-2">4006</p>
+                        <!-- <p>10.00% (30 days)</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue">
+                    <div class="card-body">
+                        <p class="mb-4">Total Bookings</p>
+                        <p class="fs-30 mb-2">61344</p>
+                        <p>22.00% (30 days)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                <div class="card card-light-blue">
+                    <div class="card-body">
+                        <p class="mb-4">Number of Meetings</p>
+                        <p class="fs-30 mb-2">34040</p>
+                        <p>2.00% (30 days)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 stretch-card transparent">
+                <div class="card card-light-danger">
+                    <div class="card-body">
+                        <p class="mb-4">Number of Clients</p>
+                        <p class="fs-30 mb-2">47033</p>
+                        <p>0.22% (30 days)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1>Words</h1>
+
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <center>
+                        <p class="card-title">Words List</p>
+                    </center>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table id="example" class="display expandable-table" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Word</th>
+                                            <th>Meaning</th>
+                                            <th>Pronunciation</th>
+                                            <th>Sentences</th>
+                                            <th>Type</th>
+                                            <th>Notes</th>
+                                            <th>Added Date</th>
+                                            <th>Last Seen Date</th>
+                                            <th>Learned</th>
+                                            <th>Correct Answers</th>
+                                            <th>Incorrect Answers</th>
+                                            <th>Last Tested Date</th>
+                                            <th>Tags</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for word in words %}
+                                        <tr>
+                                            <td>{{ word.word }}</td>
+                                            <td>{{ word.meaning }}</td>
+                                            <td>{{ word.pronunciation }}</td>
+                                            <td>{{ word.sentence1 }}<br>{{ word.sentence2 }}<br>{{ word.sentence3
+                                                }}<br>{{ word.sentence4 }}<br>{{ word.sentence5 }}</td>
+                                            <td>{{ word.type }}</td>
+                                            <td>{{ word.notes }}</td>
+                                            <td>{{ word.added_date }}</td>
+                                            <td>{{ word.last_seen_date }}</td>
+                                            <td>{{ word.learned }}</td>
+                                            <td>{{ word.correct_answers }}</td>
+                                            <td>{{ word.incorrect_answers }}</td>
+                                            <td>{{ word.last_tested_date }}</td>
+                                            <td>{{ word.tags }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
