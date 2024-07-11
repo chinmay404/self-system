@@ -1,0 +1,57 @@
+
+
+{% block ticker %}
+
+<div class="ticker-container">
+    <div class="ticker-text">
+        <!-- Your dynamic content here, typically fetched from a backend or JS -->
+        {% for word in weekly_words %}
+            <span>{{ word.word }} - {{ word.meaning }} | </span>
+        {% endfor %}
+    </div>
+</div>
+
+
+<style>
+    /* CSS for the ticker container */
+    .ticker-container {
+        width: 100%;
+        overflow: hidden;
+        background-color: #f1f1f1;
+    }
+    
+    /* CSS for the ticker text */
+    .ticker-text {
+        display: inline-block;
+        white-space: nowrap;
+        padding-left: 100%; /* Start offscreen */
+        animation: marquee 15s linear infinite; /* Adjust duration as needed */
+    }
+    
+    /* Keyframes for the scrolling animation */
+    @keyframes marquee {
+        0%   { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+
+    /* CSS for table ticker */
+    .table-ticker {
+        padding: 20px; /* Add padding around the ticker */
+    }
+
+    /* Style for table ticker content */
+    .table-ticker-content {
+        display: inline-block;
+        white-space: nowrap;
+        animation: table-marquee 30s linear infinite; /* Adjust duration as needed */
+    }
+
+    /* Keyframes for the table scrolling animation */
+    @keyframes table-marquee {
+        0%   { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+</style>
+
+
+{%endblock%}

@@ -5,3 +5,5 @@ langchain-community
 psycopg2-binary
 streamlit
 fastapi
+django-crispy-forms
+crispy-bootstrap4

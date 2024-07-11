@@ -1,4 +1,7 @@
 from django.db import models
+from django.utils import timezone
+from datetime import timedelta
+
 
 class Word(models.Model):
     word = models.CharField(max_length=255, primary_key=True)
@@ -22,3 +25,30 @@ class Word(models.Model):
     def __str__(self):
         return self.word
     
+    @classmethod
+    def total_words(cls):
+        return cls.objects.count()
+
+    @classmethod
+    def words_learned_today(cls):
+        today = timezone.now().date()
+        return cls.objects.filter(added_date=today).count()
+
+    @classmethod
+    def words_learned_this_week(cls):
+        today = timezone.now().date()
+        start_of_week = today - timedelta(days=today.weekday())
+        return cls.objects.filter(added_date__gte=start_of_week).count()
+
+    @classmethod
+    def words_learned_this_month(cls):
+        today = timezone.now().date()
+        start_of_month = today.replace(day=1)
+        return cls.objects.filter(added_date__gte=start_of_month).count()
+    
+    
+    @classmethod
+    def get_words_of_the_week(cls):
+        today = timezone.now().date()
+        start_of_week = today - timedelta(days=today.weekday())
+        return cls.objects.filter(added_date__gte=start_of_week)

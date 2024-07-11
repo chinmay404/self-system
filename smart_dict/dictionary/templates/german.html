@@ -1,13 +1,119 @@
-
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<div class="form-container">
-    <h2>Add New Word</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Add Word</button>
-    </form>
+<div class="container mt-2">
+    <div class="card p-4">
+        <h2 class="mb-4">Add New Word</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="row g-3">
+                <!-- Word and Meaning in Single Row -->
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        {{ form.word|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        {{ form.meaning|as_crispy_field }}
+                    </div>
+                </div>
+                <!-- Additional Fields in Separate Rows -->
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        {{ form.pronunciation|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        {{ form.sentence1|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        {{ form.types|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        {{ form.notes|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-floating mb-3">
+                        {{ form.tags|as_crispy_field }}
+                    </div>
+                </div>
+            </div>
+            <center><button type="submit" class="btn btn-primary mt-3">Add Word</button></center>
+        </form>
+    </div>
 </div>
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title text-center mb-4">Words List</h1>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered" id="example">
+                    <thead>
+                        <tr>
+                            <th>Word</th>
+                            <th>Meaning</th>
+                            <th>Pronunciation</th>
+                            <th>Sentences</th>
+                            <!-- <th>Type</th>
+                            <th>Notes</th>
+                            <th>Added Date</th>
+                            <th>Last Seen Date</th>
+                            <th>Learned</th>
+                            <th>Correct Answers</th>
+                            <th>Incorrect Answers</th>
+                            <th>Last Tested Date</th>
+                            <th>Tags</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for word in words %}
+                        <tr>
+                            <td>{{ word.word }}</td>
+                            <td>{{ word.meaning }}</td>
+                            <td>{{ word.pronunciation }}</td>
+                            <td>{{ word.sentence1 }}</td>
+                            <!-- {{ word.sentence2 }}<br>{{ word.sentence3}}<br>{{ word.sentence4 }}<br>{{ word.sentence5 }}</trbr> -->
+                            <!-- <td>{{ word.type }}</td>
+                            <td>{{ word.notes }}</td>
+                            <td>{{ word.added_date }}</td>
+                            <td>{{ word.last_seen_date }}</td>
+                            <td>{{ word.learned }}</td>
+                            <td>{{ word.correct_answers }}</td>
+                            <td>{{ word.incorrect_answers }}</td>
+                            <td>{{ word.last_tested_date }}</td>
+                            <td>{{ word.tags }}</td> -->
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include DataTables CSS and JS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+
+<!-- Initialize DataTable -->
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            autoFill: true,
+            paging: true,
+            searching: true,
+            ordering: true
+        });
+    });
+</script>
 {% endblock %}

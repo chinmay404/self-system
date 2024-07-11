@@ -15,9 +15,9 @@
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- <link rel="stylesheet" href="assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css"> -->
-    <link rel="stylesheet" href="/static/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css">
+    <!-- <link rel="stylesheet" href="/static/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css"> -->
     <link rel="stylesheet" href="/static/assets/vendors/ti-icons/css/themify-icons.css">
-    <link rel="stylesheet" type="text/css" href="/static/assets/js/select.dataTables.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/static/assets/js/select.dataTables.min.css"> -->
     <!-- <link rel="stylesheet" href="/static/assets/"> -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
@@ -25,35 +25,98 @@
 
     <!-- endinject -->
     <link rel="shortcut icon" href="/static/assets/images/favicon.png" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+
+    <style>
+        @-webkit-keyframes ticker {
+            0% {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+                visibility: visible;
+            }
+
+            100% {
+                -webkit-transform: translate3d(-100%, 0, 0);
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+
+        @keyframes ticker {
+            0% {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+                visibility: visible;
+            }
+
+            100% {
+                -webkit-transform: translate3d(-100%, 0, 0);
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+
+        .ticker-wrap {
+            /* position: fixed; */
+            /* bottom: 0; */
+            width: 100%;
+            /* overflow: hidden; */
+            height: 2rem;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding-left: 100%;
+            box-sizing: content-box;
+        }
+
+        .ticker-wrap .ticker {
+            display: inline-block;
+            height: 2rem;
+            line-height: 2rem;
+            white-space: nowrap;
+            padding-right: 100%;
+            box-sizing: content-box;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-name: ticker;
+            animation-name: ticker;
+            -webkit-animation-duration: 60s;
+            animation-duration: 60s;
+        }
+
+        .ticker-wrap .ticker__item {
+            display: inline-block;
+            padding: 0 2rem;
+            font-size: 2rem;
+            color: white;
+        }
+    </style>
+
+
 </head>
 
 <body>
+
     <div class="container-scroller">
-        <div class="row p-0 m-0 proBanner" id="proBanner">
-            <div class="col-md-12 p-0 m-0">
-                <div class="card-body card-body-padding px-3 d-flex align-items-center justify-content-between">
-                    <div>
-                        <div class="d-flex align-items-center justify-content-between">
-                            <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates,
-                                and more with this template!</p>
-                            <a href="https://www.bootstrapdash.com/product/skydash-admin-template" target="_blank"
-                                class="btn me-2 buy-now-btn border-0">Buy Now</a>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <a href="https://www.bootstrapdash.com/product/skydash-admin-template/"><i
-                                class="ti-home me-3 text-white"></i></a>
-                        <button id="bannerClose" class="btn border-0 p-0">
-                            <i class="ti-close text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
-<p>Chinmays Admin</p>
+                <p>Chinmays Admin</p>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -140,7 +203,17 @@
                     <span class="icon-menu"></span>
                 </button>
             </div>
+            <div class="ticker-wrap">
+                <div class="ticker">
+                    {% for word in weekly_words %}
+                    <div class="ticker__item">{{ word.word }}   =   {{ word.meaning }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+
         </nav>
+        {% block ticker %}
+        {% endblock %}
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
@@ -223,10 +296,10 @@
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="/static/assets/vendors/chart.js/chart.umd.js"></script>
-    <script src="/static/assets/vendors/datatables.net/jquery.dataTables.js"></script>
+    <!-- <script src="/static/assets/vendors/datatables.net/jquery.dataTables.js"></script> -->
     <!-- <script src="assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script> -->
-    <script src="/static/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js"></script>
-    <script src="/static/assets/js/dataTables.select.min.js"></script>
+    <!-- <script src="/static/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js"></script> -->
+    <!-- <script src="/static/assets/js/dataTables.select.min.js"></script> -->
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="/static/assets/js/off-canvas.js"></script>
@@ -239,6 +312,64 @@
     <script src="/static/assets/js/dashboard.js"></script>
     <!-- <script src="assets/js/Chart.roundedBarCharts.js"></script> -->
     <!-- End custom js for this page-->
+
+
+
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
 </body>
 
 </html>
+<style>
+    /* CSS for the ticker container */
+    .ticker-container {
+        width: 100%;
+        overflow: hidden;
+        background-color: #f1f1f1;
+    }
+
+    /* CSS for the ticker text */
+    .ticker-text {
+        display: inline-block;
+        white-space: nowrap;
+        padding-left: 100%;
+        /* Start offscreen */
+        animation: marquee 15s linear infinite;
+        /* Adjust duration as needed */
+    }
+
+    /* Keyframes for the scrolling animation */
+    @keyframes marquee {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    /* CSS for table ticker */
+    .table-ticker {
+        padding: 20px;
+        /* Add padding around the ticker */
+    }
+
+    /* Style for table ticker content */
+    .table-ticker-content {
+        display: inline-block;
+        white-space: nowrap;
+        animation: table-marquee 30s linear infinite;
+        /* Adjust duration as needed */
+    }
+
+    /* Keyframes for the table scrolling animation */
+    @keyframes table-marquee {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+</style>
