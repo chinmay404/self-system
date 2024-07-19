@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from dictionary import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('dictionary.urls')),
+    path('start_timer/', views.start_timer, name='start_timer'),
+    path('stop_timer/<int:entry_id>/', views.stop_timer, name='stop_timer'),
 ]

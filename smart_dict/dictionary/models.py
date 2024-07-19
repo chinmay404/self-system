@@ -52,3 +52,17 @@ class Word(models.Model):
         today = timezone.now().date()
         start_of_week = today - timedelta(days=today.weekday())
         return cls.objects.filter(added_date__gte=start_of_week)
+
+
+
+
+
+class TimeEntry(models.Model):
+    start_time = models.DateTimeField(null=True, blank=True)
+    stop_time = models.DateTimeField(null=True, blank=True)
+    duration = models.DurationField(null=True, blank=True)
+
+    def calculate_duration(self):
+        if self.start_time and self.stop_time:
+            self.duration = self.stop_time - self.start_time
+            self.save()
