@@ -1,8 +1,19 @@
-1,admin,logentry
-2,auth,permission
-3,auth,group
-4,auth,user
-5,contenttypes,contenttype
-6,sessions,session
-7,dictionary,word
-8,dictionary,timeentry
+langsamer,Slower,langsamer,"",,,,,,"",2024-07-12,2024-07-12,t,0,0,,""
+schnell,Faster,shnell,Die Reise war schnell und angenehm,,,,,,"",2024-07-12,2024-07-12,t,0,0,,""
+ich weiss nichts,I Dont know,"","",,,,,,"",2024-07-12,2024-07-12,t,0,0,,sentense
+Worüber,About what,worb,"Worüber habe ich gesprochen? -('"What was I speaking about?'" )",,,,,,"",2024-07-12,2024-07-12,t,0,0,,""
+gesprochen,"Speak , Spoken",gesprachen,"",,,,,,"",2024-07-12,2024-07-12,t,0,0,,""
+wissen,know,wissen,ich wisee - ( i know  ),,,,,,"",2024-07-12,2024-07-12,t,0,0,,""
+auf,on - upon,auf,ich auf dem richtigen Weg - ( im on right parg ),,,,,,"",2024-07-12,2024-07-12,t,0,0,,""
+tun,do,tun,das tun  - o that,,,,,,"",2024-07-12,2024-07-12,t,0,0,,""
+Beruf,Profession,"",ich bin kelner von berfu - { i am waiter by my profession  },,,,,,"",2024-07-15,2024-07-15,t,0,0,,""
+von,From,"",ich bin kelen von Beruf,,,,,,"",2024-07-15,2024-07-15,t,0,0,,""
+verkäufer / in,salesman / wormen,fearkaufer / in,Die Verkäuferin ist sehr schnell,,,,,,"",2024-07-16,2024-07-16,t,0,0,,""
+viele,Many,feel,Ich Habbe viele freund,,,,,,"",2024-07-16,2024-07-16,t,0,0,,""
+gemacht,Made,gemacht,was hast du heute gemacht -  what have you done today,,,,,,"",2024-07-16,2024-07-16,t,0,0,,""
+Mittagessen,Lunch,mit-tag-essen,"",,,,,,"",2024-07-16,2024-07-16,t,0,0,,""
+besonders,Special,beaonders,sie ist besonders fur mich,,,,,,"",2024-07-16,2024-07-16,t,0,0,,""
+normalerweise,Normally,nor-mala-wise,was ist du normalawise gern?,,,,,,"",2024-07-16,2024-07-16,t,0,0,,""
+Manchmal,Sometimes,man-s-mal,Manchmal bin ich müde.,,,,,,"sentence is Subject-Verb-Object (SVO). However, when you start a sentence with an adverb like '"manchmal'" (sometimes), the verb usually comes before the subject.",2024-07-16,2024-07-16,t,0,0,,""
+oft,offen,oft,spilest du oft fusball?,,,,,,"",2024-07-16,2024-07-16,t,0,0,,""
+die bruck,Bridge,B-rukh,"",,,,,,"",2024-07-18,2024-07-18,t,0,0,,""
